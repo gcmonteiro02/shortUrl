@@ -1,0 +1,31 @@
+{
+  "name": "shorturl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "api",
+    "url"
+  ],
+  "author": "Gabriel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "is-empty": "^1.2.0",
+    "joi": "^17.2.1",
+    "knex": "^0.21.5",
+    "mysql": "^2.18.1",
+    "prettier": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
