@@ -102,7 +102,7 @@ const checkIfUserAlreadyExists = async (userId) => {
 const formatStatsResponse = (stats) => {
   try {
     return (responseFormatted = {
-      hits: stats.totalUrls,
+      hits: stats.totalHits,
       urlCount: stats.totalUrls,
       topUrls: stats.mostAccessedUrls,
     });

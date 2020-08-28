@@ -71,7 +71,7 @@ const queryUserStats = async (queryUserIdsUrls) => {
       .orderBy(MYSQL_COLUMNS.URLS.HITS, "desc")
       .limit(Number(topUrlsQueryLimit));
     const totalUrls = await connection(MYSQL_TABLES.URLS)
-      .count("url_id as total_urls")
+      .count("id as total_urls")
       .whereIn(MYSQL_COLUMNS.URLS.ID, queryUserIdsUrls);
     const totalHits = await connection(MYSQL_TABLES.URLS)
       .sum("hits as total_hits")
@@ -93,7 +93,7 @@ const queryUserStats = async (queryUserIdsUrls) => {
 const getUrlsUser = async (userIdInDb) => {
   try {
     const queryUserUrls = await connection(MYSQL_TABLES.USERS_URLS)
-      .select(MYSQL_COLUMNS.URLS.ID)
+      .select(MYSQL_COLUMNS.URLS.URLID)
       .where(MYSQL_COLUMNS.USERS.USERID, "=", userIdInDb);
     const formattedUrlIds = await formatUserUrlIds(queryUserUrls);
     return formattedUrlIds;
