@@ -15,7 +15,7 @@ class Url {
       const url = splitUrl(queryDbStats);
       return `https://${url}`;
     } catch (error) {
-      throw createError(error.statusCode, error.message, error.stack);
+      throw createError(error.statusCode, error.message);
     }
   }
 
@@ -30,7 +30,7 @@ class Url {
       await urlDatabase.delUrl(urlId);
       return;
     } catch (error) {
-      throw createError(error.statusCode, error.message, error.stack);
+      throw createError(error.statusCode, error.message);
     }
   }
 }
