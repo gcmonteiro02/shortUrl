@@ -14,6 +14,7 @@ const HTTP_STATUS_CODE = {
     INTERNAL_SERVER_ERROR: 500,
     DELETE: 200,
     CONFLICT: 409,
+    REDIRECT: 301
 }
 
 module.exports = HTTP_STATUS_CODE;

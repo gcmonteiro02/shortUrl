@@ -20,8 +20,7 @@ CREATE TABLE users_urls (
 		url_id int NOT NULL,
 		date_registered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		PRIMARY KEY (user_id,url_id),
-		FOREIGN KEY (url_id) REFERENCES urls(id),
-		FOREIGN KEY (user_id) REFERENCES users(id)
+		FOREIGN KEY (url_id) REFERENCES urls(id)
 );
 
 INSERT INTO users (user_id) VALUES ('gcmonteiro');
@@ -62,3 +61,4 @@ CREATE TABLE IF NOT EXISTS app_config_variables (
 );
 
 INSERT INTO app_config_variables (cfg_name, cfg_value) VALUES ('top_user_urls_limit', '10');
+INSERT INTO app_config_variables (cfg_name, cfg_value) VALUES ('top_global_urls_limit', '10');
