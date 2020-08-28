@@ -20,7 +20,8 @@ CREATE TABLE users_urls (
 		url_id int NOT NULL,
 		date_registered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		PRIMARY KEY (user_id,url_id),
-		FOREIGN KEY (url_id) REFERENCES urls(id)
+		FOREIGN KEY (url_id) REFERENCES urls(id),
+		FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 INSERT INTO users (user_id) VALUES ('gcmonteiro');

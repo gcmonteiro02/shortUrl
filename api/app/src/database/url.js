@@ -41,11 +41,11 @@ class UrlDatabase {
    */
   async delUrl(urlId) {
     try {
+      await connection(MYSQL_TABLES.USERS_URLS)
+      .where(MYSQL_COLUMNS.URLS.URLID, "=", urlId)
+      .del();
       await connection(MYSQL_TABLES.URLS)
         .where(MYSQL_COLUMNS.URLS.ID, "=", urlId)
-        .del();
-      await connection(MYSQL_TABLES.USERS_URLS)
-        .where(MYSQL_COLUMNS.URLS.URLID, "=", urlId)
         .del();
       return;
     } catch (error) {
