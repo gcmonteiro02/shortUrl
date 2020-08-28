@@ -6,7 +6,6 @@ module.exports.create = async (req, res, next) => {
     const body = req.body;
     const user = new User();
     const response = await user.create(body);
-    res.set("Content-Type", "application/json");
     res.status(response.statusCode).send(response.body);
   } catch (error) {
     const errorResponse = responseUtil.errorResponse(error.statusCode, error);
@@ -19,7 +18,6 @@ module.exports.listStats = async (req, res, next) => {
     const userId = req.params.userId;
     const user = new User();
     const response = await user.listStats(userId);
-    res.set("Content-Type", "application/json");
     res.status(response.statusCode).send(response.body);
   } catch (error) {
     const errorResponse = responseUtil.errorResponse(error.statusCode, error);
@@ -32,7 +30,20 @@ module.exports.deleteById = async (req, res, next) => {
     const userId = req.params.userId;
     const user = new User();
     const response = await user.deleteById(userId);
-    res.set("Content-Type", "application/json");
+    res.status(response.statusCode).send(response.body);
+  } catch (error) {
+    const errorResponse = responseUtil.errorResponse(error.statusCode, error);
+    return res.status(errorResponse.statusCode).send(errorResponse.body);
+  }
+};
+
+module.exports.createUrl = async (req, res, next) => {
+  try {
+    const body = req.body;
+    const host = req.headers.host;
+    const userId = req.params.userId;
+    const user = new User();
+    const response = await user.createUrl(userId, body, host);
     res.status(response.statusCode).send(response.body);
   } catch (error) {
     const errorResponse = responseUtil.errorResponse(error.statusCode, error);
