@@ -7,6 +7,9 @@ const userSchema = {
   paramId: Joi.object().keys({
     userId: Joi.string().required(),
   }),
+  urlCrate:Joi.object().keys({
+    url: Joi.string().required()
+  }),
 };
 
 module.exports = userSchema;
