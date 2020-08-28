@@ -56,6 +56,23 @@ class UserDatabase {
       throw createError(error.statusCode, error.message);
     }
   }
+
+  /**
+   * Function responsible for create a url linked with a user
+   * @param {String} userId
+   * @param {Object} data
+   */
+  async createUserUrl(userId, data) {
+    try {
+      const userIdDb = await getUserDbIdByUserId(userId);
+      const createResponse = await connection(MYSQL_TABLES.URLS).insert(data);
+      await connection(MYSQL_TABLES.USERS_URLS).insert({user_id: userIdDb, url_id: createResponse[0]});
+      const getUrlInfo = await connection(MYSQL_TABLES.URLS).select('*').where(MYSQL_COLUMNS.URLS.ID, "=", createResponse[0]);
+      return getUrlInfo;
+    } catch (error) {
+      throw createError(error.statusCode, error.message);
+    }
+  }
 }
 
 /**

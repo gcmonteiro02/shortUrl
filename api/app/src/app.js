@@ -8,6 +8,10 @@ const userRoutes = require("./routes/userRoutes");
 const app = express();
 
 app.use(handlerError);
+app.use(function (req, res, next) {
+  res.header("Content-Type",'application/json');
+  next();
+});
 app.use(bodyParser.json({ limit: "1mb", extended: true }));
 app.use(
   bodyParser.urlencoded({
