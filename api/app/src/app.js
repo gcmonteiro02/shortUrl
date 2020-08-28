@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const { handlerError } = require("./utils/errorHandler");
 const generalRoutes = require("./routes/generalRoutes");
 const userRoutes = require("./routes/userRoutes");
+const globalRoutes = require('./routes/globalRoutes');
+const urlRoutes = require('./routes/urlRoutes');
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.use(
     extended: true,
   })
 );
-app.use(generalRoutes.userPath, userRoutes)
+app.use(generalRoutes.userPath, userRoutes);
+app.use(generalRoutes.globalPath, globalRoutes);
+app.use(generalRoutes.url, urlRoutes);
+
 
 module.exports = app;

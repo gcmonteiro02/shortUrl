@@ -3,7 +3,8 @@ const createError = require("http-errors");
 const HTTP_STATUS_CODE = require("../constants/httpStatusCode");
 const SUCCESS_MESSAGES = require("../constants/successMessages");
 const ERROR_MESSAGES = require("../constants/errorMessages");
-const urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+const {formatStatsResponse} = require('../utils/formatStatusResponse');
+const {checkIfIsAValidUrl} = require('../utils/commonsValidator');
 class User {
   /**
    * Function responsible for create a new user
@@ -122,22 +123,6 @@ const checkIfUserAlreadyExists = async (userId) => {
 };
 
 /**
- * Function responsible for sum all stats of user
- * @param {Array} statusOfUser
- */
-const formatStatsResponse = (stats) => {
-  try {
-    return (responseFormatted = {
-      hits: stats.totalHits,
-      urlCount: stats.totalUrls,
-      topUrls: stats.mostAccessedUrls,
-    });
-  } catch (error) {
-    throw createError(error.statusCode, error.message);
-  }
-};
-
-/**
  * Function responsible for shorten url
  * @param {String} url
  */
@@ -146,20 +131,6 @@ const shortenUrl = (host) => {
     const randomId = Math.random().toString(36).substring(7);
     const shortUrl = `http://${String(host)}/${randomId}`;
     return shortUrl;
-  } catch (error) {
-    throw createError(error.statusCode, error.message);
-  }
-};
-
-/**
- * Function that check if is a valid url
- * @param {String} url
- */
-const checkIfIsAValidUrl = (url) => {
-  try {
-    const urlCheckResponse = url.match(urlRegex);
-    if (urlCheckResponse) return;
-    throw createError(HTTP_STATUS_CODE.BAD_REQUEST, ERROR_MESSAGES.INVALID_URL);
   } catch (error) {
     throw createError(error.statusCode, error.message);
   }
