@@ -4,10 +4,11 @@ const SQL_COLUMNS = {
     ID: "id",
   },
   URLS: {
-    ID: "url_id",
+    ID: "id",
     HITS: "hits",
     URL: "url",
     SHORT_URL: "short_url",
+    URLID: "url_id"
   },
   APP_CONFIG_VARIABLES: {
     CFG_NAME: "cfg_name",
