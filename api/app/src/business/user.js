@@ -34,6 +34,7 @@ class User {
   async deleteById(userId) {
     try {
       await checkIfIsValidUser(userId);
+      const userDatabase = new UserDatabase();
       await userDatabase.deleteById(userId);
       const response = {
         statusCode: HTTP_STATUS_CODE.DELETE,
