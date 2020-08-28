@@ -4,7 +4,7 @@ O Projeto Short Url tem como função replicar de forma semelhante as mesmas fun
 
 ## Instalação
 
-Após extrair o diretorio raiz, utilizar os comandos abaixo:
+Após extrair os arquivos, no diretorio `/shortUrl` utilizar os comandos abaixo:
 
 ```bash
 docker-compose build && docker-compose up -d
