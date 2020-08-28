@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { handlerError } = require("./utils/errorHandler");
+const generalRoutes = require("./routes/generalRoutes");
+const userRoutes = require("./routes/userRoutes");
+
 const app = express();
 
 app.use(handlerError);
@@ -12,5 +15,6 @@ app.use(
     extended: true,
   })
 );
+app.use(generalRoutes.userPath, userRoutes)
 
 module.exports = app;

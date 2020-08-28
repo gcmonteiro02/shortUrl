@@ -3,7 +3,7 @@ const knex = require('knex');
 const connection = knex({
     client: 'mysql',
     connection: {
-            host: 'shorturlproject_mysqldb_1',
+            host: 'shorturl_mysqldb_1',
             user: 'root',
             password: '12345678',
             database: 'shorturl',
