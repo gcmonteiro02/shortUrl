@@ -51,9 +51,3 @@ Foi utilizado o GitHub para controle de PR's e o versionamento do projeto. O tre
 ## Bônus: Tabela de configuração
 
 **Variáveis de configurações** : Na Tabela `app_config_variables` é possível ajustar a quantidade de URLS mais acessadas, tanto no end point de stas globais quanto no end point de stats por user. Por default os valores são os solicitados no escopo do projeto, `10`. Para ajustar os valores, basta rodar um simples comando de UPDATE na tabela `app_config_variables`, setando o valor do campo `cfg_value` para o valor desejado.
-
-
-## Agradecimento
-
-Senhores(as), de qualquer forma, agradeço a oportunidade de participar desse desafio super interessante. Estive ocupado e portanto acabei não tendo muito tempo para me dedicar. Mas gostaria que soubessem que me esforcei ao máximo e aprendi muito com tudo isso. Meus sinceros agradecimentos. 
-[GitHub](https://github.com/gcmonteiro02)  /  [Linkedin](https://www.linkedin.com/in/gcmonteiru/)
