@@ -35,7 +35,7 @@ A aplicação possui uma tendência ao desing pattern MVC.
 - POST /users 
 - DELETE /user/:userId
 
-Todos os end points solicitados foram criados. Todos os end points utilizam de validações com o JOI. Portanto, é necessário seguir a risca os parametros e body que foram solicitados. 
+Todos os end points utilizam de validações com o JOI.
 
 `A criação de testes unitários não foi possível de ser executada. O Jest foi instalado nas dependências de desenvolvimento e existe uma pasta __testes__ que foi criada, porém não houve tempo hábil para executar os testes.`  
 
@@ -48,6 +48,6 @@ Foi utilizado o GitHub para controle de PR's e o versionamento do projeto. O tre
 [Short Url Project Collection](https://www.getpostman.com/collections/621f600481de63c23a6f)
 
 
-## Bônus: Tabela de configuração
+## Tabela de configuração
 
 **Variáveis de configurações** : Na Tabela `app_config_variables` é possível ajustar a quantidade de URLS mais acessadas, tanto no end point de stas globais quanto no end point de stats por user. Por default os valores são os solicitados no escopo do projeto, `10`. Para ajustar os valores, basta rodar um simples comando de UPDATE na tabela `app_config_variables`, setando o valor do campo `cfg_value` para o valor desejado.
